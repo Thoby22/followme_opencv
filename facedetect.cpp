@@ -117,7 +117,7 @@ int main( int argc, const char** argv )
         
         
         // under construction
-        // Bildverzerrung wen das ende erreicht wird
+        // frame gets squeezed at the borders
         /*
         if  ((face_av.end.x - face_av.start.x > frame.cols) ||
             (face_av.end.y - face_av.start.y > frame.rows))
