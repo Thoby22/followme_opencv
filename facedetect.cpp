@@ -118,6 +118,7 @@ int main( int argc, const char** argv )
         
         // under construction
         // frame gets squeezed at the borders
+        // the size must be changed to fit into frame
         /*
         if  ((face_av.end.x - face_av.start.x > frame.cols) ||
             (face_av.end.y - face_av.start.y > frame.rows))
