@@ -1,3 +1,12 @@
+// ***************************************
+// *
+// *  DRS - robotics
+// *  (c) 2023 by Thomas Dose
+// *
+// ***************************************
+
+// follow me function for opencv
+
 #include "opencv2/objdetect.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
