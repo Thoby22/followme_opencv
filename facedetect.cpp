@@ -17,9 +17,13 @@
 using namespace std;
 using namespace cv;
 
-#define count_mov_av  15                                                       // moving average cou
-#define magify  1.5
-#define DEBUG
+#define count_mov_av  15                                                        // moving average cou
+
+#define magify  1.5                                                             // size of face shown @ detect window
+
+#define DEBUG                                                                   // show all text
+
+#define GUI                                                                     // using graphical interface
 
 int main( int argc, const char** argv )
 {
@@ -54,7 +58,9 @@ int main( int argc, const char** argv )
         if( frame.empty() )                                                     // if empty stopp
             break;
         
+#ifdef GUI
         imshow( "original", frame);	                                            // show original
+#endif
         
         cvtColor( frame, gray, COLOR_BGR2GRAY );                                // some preperation
         resize( gray, smallImg, Size(), 1, 1, INTER_LINEAR_EXACT );
@@ -175,9 +181,10 @@ int main( int argc, const char** argv )
                     font_size,
                     font_Color,
                     font_weight);                                                   //Putting the text in the matrix//
-            
+ 
+#ifdef GIU
             imshow( "detect", frame_show );	                                        // show face
-            
+#endif
             
             
 #ifdef DEBUG
