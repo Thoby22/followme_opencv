@@ -70,8 +70,6 @@ int main( int argc, const char** argv )
         
         ratio = double(frame.rows ) / double(frame.cols );                      // calculate frame ratio
         
-        
-        
         if (faces.size() == 0)                                                   // if no faces detected
         {
             r.x = 0;                                                            // screens starts at 0
@@ -79,6 +77,7 @@ int main( int argc, const char** argv )
             r.width  = frame.cols;                                              // full size
             r.height = cvRound(double(frame.cols) * ratio);                     // ensure same ratio
         } else {
+        
             r = faces[0];                                                      // get data from first face
             
             r.width = r.width * magify;                                             // set size of face in x
@@ -157,11 +156,29 @@ int main( int argc, const char** argv )
                    Size(frame.cols,frame.rows),
                    1, 1 ,INTER_LINEAR_EXACT);
             
+            t = (double)getTickCount() - t;                                         // get new time
             
+            string str = to_string(1/t*getTickFrequency()) + " fps";
+            
+            Point text_position(80, 80);					                        //Declaring the text position//
+            
+            int font_size = 1;								                        //Declaring the font size//
+            
+            Scalar font_Color(0, 0, 0);						                        //Declaring the color of the font//
+            
+            int font_weight = 2;						                            //Declaring the font weight//
+            
+            putText(frame_show,
+                    str,
+                    text_position,
+                    FONT_HERSHEY_COMPLEX,
+                    font_size,
+                    font_Color,
+                    font_weight);                                                   //Putting the text in the matrix//
             
             imshow( "detect", frame_show );	                                        // show face
             
-            t = (double)getTickCount() - t;                                         // get new time
+            
             
 #ifdef DEBUG
             printf( "speed = %g fps\n", 1/t*getTickFrequency());                    // show fps
