@@ -29,7 +29,7 @@ int main( int argc, const char** argv )
     cascade.load(samples::findFile("haarcascade_frontalface_alt.xml"));         // referrence frontal face
     capture.open(0);                                                            // required for opencv
     vector<Rect> faces;                                                         // faces
-    Rect r;                                                                     // vector for faces
+    Rect r = {0,0,0,0};                                                                     // vector for faces
     double ratio;                                                               // Video ratio
     
     struct point {                                                              // declare point
